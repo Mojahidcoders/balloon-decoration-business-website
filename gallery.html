@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Gallery - Nazim Balloons Decor | Our Balloon Decoration Work Portfolio</title>
+    <meta name="description" content="Browse our beautiful balloon decoration gallery featuring birthday parties, anniversaries, weddings, and welcome baby events. See our creative work and get inspired for your event.">
+    <meta name="keywords" content="balloon decoration gallery, party decoration photos, birthday decoration ideas, wedding balloon pictures, anniversary decoration images">
+    <meta name="author" content="Nazim Balloons Decor">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF1493',
+                        secondary: '#9333EA',
+                        accent: '#FFC107',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* WhatsApp Button Pulse */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Lightbox Modal Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: auto;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Gallery Item Hover Effect */
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Filter Button Active State */
+        .filter-btn.active {
+            background: linear-gradient(to right, #FF1493, #9333EA);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand Name -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        🎈 Nazim Balloons Decor
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition px-3 py-2">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition px-3 py-2">Services</a>
+                    <a href="gallery.html" class="text-primary border-b-2 border-primary font-semibold px-3 py-2">Gallery</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition px-3 py-2">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition px-3 py-2">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+                <a href="services.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Services</a>
+                <a href="gallery.html" class="block px-3 py-2 text-primary font-semibold bg-pink-50 rounded">Gallery</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Gallery</h1>
+            <p class="text-xl opacity-90">Explore our beautiful balloon decoration work</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-full font-semibold border-2 border-primary text-gray-700 hover:bg-primary hover:text-white transition" data-filter="all">
+                    All
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold border-2 border-primary text-gray-700 hover:bg-primary hover:text-white transition" data-filter="birthday">
+                    🎂 Birthday
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold border-2 border-primary text-gray-700 hover:bg-primary hover:text-white transition" data-filter="anniversary">
+                    💕 Anniversary
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold border-2 border-primary text-gray-700 hover:bg-primary hover:text-white transition" data-filter="wedding">
+                    💒 Wedding
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-full font-semibold border-2 border-primary text-gray-700 hover:bg-primary hover:text-white transition" data-filter="baby">
+                    👶 Welcome Baby
+                </button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Birthday Images -->
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/FF69B4/FFFFFF?text=Birthday+Decoration+1" 
+                         alt="Birthday balloon decoration with colorful balloons" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Birthday Celebration</p>
+                        <p class="text-gray-500 text-sm">Colorful balloon arch</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/9333EA/FFFFFF?text=Birthday+Decoration+2" 
+                         alt="Kids birthday party decoration with themed balloons" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Kids Birthday Party</p>
+                        <p class="text-gray-500 text-sm">Themed balloon setup</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/FFC107/FFFFFF?text=Birthday+Decoration+3" 
+                         alt="Birthday balloon bouquet arrangement" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Birthday Bouquet</p>
+                        <p class="text-gray-500 text-sm">Number balloons and more</p>
+                    </div>
+                </div>
+                
+                <!-- Anniversary Images -->
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="anniversary">
+                    <img src="https://via.placeholder.com/400x500/DC143C/FFFFFF?text=Anniversary+Decoration+1" 
+                         alt="Romantic anniversary balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Anniversary Celebration</p>
+                        <p class="text-gray-500 text-sm">Romantic red and pink theme</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="anniversary">
+                    <img src="https://via.placeholder.com/400x500/FF1493/FFFFFF?text=Anniversary+Decoration+2" 
+                         alt="Heart-shaped balloon arrangement for anniversary" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Heart Balloon Arch</p>
+                        <p class="text-gray-500 text-sm">Love-themed decoration</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="anniversary">
+                    <img src="https://via.placeholder.com/400x500/C71585/FFFFFF?text=Anniversary+Decoration+3" 
+                         alt="Elegant anniversary balloon setup" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Elegant Anniversary</p>
+                        <p class="text-gray-500 text-sm">Rose gold balloons</p>
+                    </div>
+                </div>
+                
+                <!-- Wedding Images -->
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="wedding">
+                    <img src="https://via.placeholder.com/400x500/FFD700/000000?text=Wedding+Decoration+1" 
+                         alt="Wedding balloon arch decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Wedding Entrance Arch</p>
+                        <p class="text-gray-500 text-sm">Gold and white balloons</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="wedding">
+                    <img src="https://via.placeholder.com/400x500/F5F5DC/000000?text=Wedding+Decoration+2" 
+                         alt="Wedding reception balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Reception Decoration</p>
+                        <p class="text-gray-500 text-sm">Elegant pastel theme</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="wedding">
+                    <img src="https://via.placeholder.com/400x500/E6E6FA/000000?text=Wedding+Decoration+3" 
+                         alt="Wedding photo booth balloon backdrop" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Photo Booth Backdrop</p>
+                        <p class="text-gray-500 text-sm">Purple and white balloons</p>
+                    </div>
+                </div>
+                
+                <!-- Welcome Baby Images -->
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="baby">
+                    <img src="https://via.placeholder.com/400x500/87CEEB/FFFFFF?text=Baby+Decoration+1" 
+                         alt="Welcome baby boy balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Welcome Baby Boy</p>
+                        <p class="text-gray-500 text-sm">Blue themed balloons</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="baby">
+                    <img src="https://via.placeholder.com/400x500/FFB6C1/FFFFFF?text=Baby+Decoration+2" 
+                         alt="Welcome baby girl balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Welcome Baby Girl</p>
+                        <p class="text-gray-500 text-sm">Pink themed balloons</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="baby">
+                    <img src="https://via.placeholder.com/400x500/98FB98/FFFFFF?text=Baby+Decoration+3" 
+                         alt="Gender neutral baby shower balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Baby Shower</p>
+                        <p class="text-gray-500 text-sm">Neutral color theme</p>
+                    </div>
+                </div>
+                
+                <!-- More Birthday Images -->
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/FF6347/FFFFFF?text=Birthday+Decoration+4" 
+                         alt="Superhero themed birthday balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Superhero Theme</p>
+                        <p class="text-gray-500 text-sm">Custom character balloons</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/DA70D6/FFFFFF?text=Birthday+Decoration+5" 
+                         alt="Princess themed birthday balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Princess Theme</p>
+                        <p class="text-gray-500 text-sm">Purple and pink balloons</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl shadow-lg overflow-hidden bg-white" data-category="birthday">
+                    <img src="https://via.placeholder.com/400x500/00CED1/FFFFFF?text=Birthday+Decoration+6" 
+                         alt="Under the sea birthday balloon decoration" 
+                         loading="lazy"
+                         class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <p class="text-gray-700 font-semibold">Under the Sea</p>
+                        <p class="text-gray-500 text-sm">Aquatic themed balloons</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12">
+                <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                <p class="text-gray-500 text-xl">No decorations found in this category</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="py-16 px-4 bg-primary text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Love What You See?</h2>
+            <p class="text-xl mb-8">Let's create something beautiful for your event! Contact us today for a free quote.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/916206255349?text=Hello%20Nazim%20Balloons%20Decor%2C%20I%20saw%20your%20gallery%20and%20want%20to%20book%20a%20decoration" target="_blank" class="bg-green-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Book on WhatsApp
+                </a>
+                <a href="contact.html" class="bg-white text-primary font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- About Column -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-primary">🎈 Nazim Balloons Decor</h3>
+                    <p class="text-gray-400 mb-4">
+                        Making your moments colorful and memorable with professional balloon decoration services for all occasions.
+                    </p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-primary transition">Services</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-primary transition">Gallery</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                            <a href="tel:+916206255349" class="hover:text-primary transition">+91 6206255349</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp mr-3 text-primary"></i>
+                            <a href="https://wa.me/916206255349" target="_blank" class="hover:text-primary transition">WhatsApp Chat</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <a href="mailto:info@nazimballoons.com" class="hover:text-primary transition">info@nazimballoons.com</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-primary text-2xl transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-2xl transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary text-2xl transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Nazim Balloons Decor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/916206255349?text=Hello%20Nazim%20Balloons%20Decor%2C%20I%20want%20to%20book%20a%20decoration%20service" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 transition pulse-animation z-50">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span id="close-lightbox" class="absolute top-8 right-8 text-white text-5xl font-bold cursor-pointer hover:text-gray-300 transition">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged view">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const noResults = document.getElementById('no-results');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+                let visibleCount = 0;
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeLightbox = document.getElementById('close-lightbox');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close lightbox when clicking the X button
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+</body>
+</html>
